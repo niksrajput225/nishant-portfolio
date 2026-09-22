@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nishant Kumar | DevOps & Cloud Engineer | Web Developer</title>
+  <meta name="description" content="Portfolio of Nishant Kumar - DevOps & Cloud Engineer specializing in Linux servers, Docker, Cloudflare Zero Trust, automated disaster recovery, and modern web platforms like Dubai Fragrances and WooCommerce." />
+  <meta name="theme-color" content="#07090e" />
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              950: '#07090e',
+              900: '#0d121f',
+              800: '#141c2e',
+              700: '#1e293b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[#07090e] text-slate-100 min-h-screen flex flex-col font-sans bg-grid-pattern relative selection:bg-cyan-500 selection:text-slate-950">
+
+  <!-- Subtle Radial Glow in Background -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-radial-gradient pointer-events-none z-0"></div>
+
+  <!-- ==========================================
+       1. STICKY NAVBAR
+       ========================================== -->
+  <header class="sticky top-0 z-40 bg-[#07090e]/85 backdrop-blur-xl border-b border-slate-800/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- Brand Identity -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-600 p-[1.5px] shadow-cyan-500/20 shadow-md">
+            <div class="w-full h-full bg-[#07090e] rounded-[10px] flex items-center justify-center font-mono font-bold text-sm text-cyan-400 group-hover:scale-105 transition-transform">
+              NK&gt;
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-base sm:text-lg text-white group-hover:text-cyan-400 transition-colors">Nishant Kumar</span>
+              <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono text-emerald-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
+                Open to Opportunities
+              </span>
+            </div>
+            <span class="block text-[11px] font-mono text-slate-400 -mt-0.5">DevOps & Cloud Engineer</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-7 text-xs font-medium text-slate-300">
+          <a href="#hero" class="hover:text-cyan-400 transition-colors">Overview</a>
+          <a href="#terminal" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+            <i data-lucide="terminal" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>CLI Simulator</span>
+          </a>
+          <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+          <a href="#architecture" class="hover:text-cyan-400 transition-colors">Architecture</a>
+          <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+          <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+          <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right Action Button (Resume Modal) -->
+        <div class="hidden sm:flex items-center gap-3">
+          <button 
+            type="button" 
+            onclick="openResumeModal()"
+            class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/80 text-xs font-semibold flex items-center gap-2 transition-all shadow-sm"
+          >
+            <i data-lucide="file-text" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>View Resume</span>
+          </button>
+
+          <a 
+            href="#contact"
+            class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-slate-950 font-bold text-xs flex items-center gap-1.5 hover:opacity-95 transition-all shadow-cyan-500/20 shadow-md"
+          >
+            <span>Let's Talk</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-950"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          type="button" 
+          id="mobileMenuToggle" 
+          aria-label="Toggle Navigation Menu"
+          class="md:hidden p-2 rounded-xl bg-slate-900 text-slate-300 border border-slate-800"
+        >
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden md:hidden py-4 border-t border-slate-800 space-y-3">
+        <a href="#hero" class="mobile-nav-link block text-sm text-slate-300 hover:text-cyan-400 py-1">Overview</a>
+        <a href="#terminal" class="mobile-nav-link block text-sm text-slate-300 hover:text-cyan-400 py-1">CLI Simulator</a>
+        <a href="#projects" class="mobile-nav-link block text-sm text-slate-300 hover:text-cyan-400 py-1">Featured Projects</a>
+        <a href="#architecture" class="mobile-nav-link block text-sm text-slate-300 hover:text-cyan-400 py-1">Architecture Flow</a>
+        <a href="#experience" class="mobile-nav-link block text-sm text-slate-300 hover:text-cyan-400 py-1">Experience & Education</a>
+        <a href="#skills" class="mobile-nav-link block text-sm text-slate-300 hover:text-cyan-400 py-1">Skills Matrix</a>
+        <a href="#contact" class="mobile-nav-link block text-sm text-slate-300 hover:text-cyan-400 py-1">Contact Nishant</a>
+        
+        <div class="pt-3 border-t border-slate-800 flex gap-2">
+          <button 
+            type="button" 
+            onclick="openResumeModal()"
+            class="flex-1 py-2 text-center rounded-xl bg-slate-900 text-slate-200 border border-slate-800 text-xs font-semibold"
+          >
+            View Resume
+          </button>
+          <a 
+            href="#contact" 
+            class="flex-1 py-2 text-center rounded-xl bg-cyan-500 text-slate-950 text-xs font-bold"
+          >
+            Contact
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================
+       2. HERO SECTION
+       ========================================== -->
+  <section id="hero" class="relative z-10 pt-12 sm:pt-20 pb-16 sm:pb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Eyebrow Chip -->
+      <div class="flex items-center justify-center md:justify-start mb-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs font-mono text-cyan-300 shadow-sm">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span>Cloudflare Zero Trust • Docker • CI/CD • Full-Stack Web</span>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Hero Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Copy & CTAs -->
+        <div class="lg:col-span-7 text-center md:text-left">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+            Architecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400">Resilient Cloud Infrastructure</span> & Shipping Web Platforms.
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
+            Hi, I'm <strong class="text-white">Nishant Kumar</strong> — a DevOps & Cloud Engineer with deep hands-on expertise in Linux server orchestration, Cloudflare Zero Trust (cloudflared tunnels), multi-container Docker environments, and automated pull-based disaster recovery. I also design and build high-performance web products like <a href="https://fantastic-kangaroo-4a2356.netlify.app/" target="_blank" class="text-cyan-400 hover:underline">Dubai Fragrances</a> and <a href="https://tosomeonespecial.com/" target="_blank" class="text-purple-400 hover:underline">To Someone Special</a>.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3.5 mb-10">
+            <a 
+              href="#projects" 
+              class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-slate-950 font-bold text-sm flex items-center gap-2 hover:opacity-95 transition-all shadow-cyan-500/25 shadow-lg"
+            >
+              <i data-lucide="layout-grid" class="w-4 h-4 text-slate-950"></i>
+              <span>Explore Featured Projects</span>
+            </a>
+
+            <a 
+              href="#terminal" 
+              class="px-5 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/80 text-sm font-semibold flex items-center gap-2 transition-colors font-mono"
+            >
+              <i data-lucide="terminal" class="w-4 h-4 text-cyan-400"></i>
+              <span>Run CLI Simulator</span>
+            </a>
+
+            <button 
+              type="button" 
+              onclick="openResumeModal()"
+              class="px-5 py-3.5 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 text-slate-300 hover:text-white border border-slate-800 text-sm font-semibold flex items-center gap-2 transition-colors"
+            >
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Resume</span>
+            </button>
+          </div>
+
+          <!-- Social Quick Links -->
+          <div class="flex items-center justify-center md:justify-start gap-4 text-xs font-mono text-slate-400">
+            <a href="https://github.com/niksrajput225" target="_blank" class="flex items-center gap-1.5 hover:text-white transition-colors">
+              <i data-lucide="github" class="w-4 h-4 text-slate-300"></i>
+              <span>github/niksrajput225</span>
+            </a>
+            <span>•</span>
+            <a href="https://linkedin.com/in/nishantkumar225" target="_blank" class="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
+              <i data-lucide="linkedin" class="w-4 h-4 text-cyan-400"></i>
+              <span>in/nishantkumar225</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Real-time System Status & Tech Highlights Card -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl bg-[#0d121f] border border-slate-800/80 p-6 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-16 -top-16 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <!-- Card Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-5">
+              <div class="flex items-center gap-2.5">
+                <div class="w-3 h-3 rounded-full bg-emerald-400 pulse-dot"></div>
+                <span class="text-xs font-mono font-bold text-white uppercase tracking-wider">Production Telemetry</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Host: srv-ubuntu-prod</span>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="grid grid-cols-2 gap-3 mb-5">
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[11px] font-mono text-slate-400">INBOUND PORTS</div>
+                <div class="text-xl font-mono font-bold text-emerald-400 mt-0.5">0 Exposed</div>
+                <div class="text-[10px] text-slate-400 mt-1">Zero Trust Tunnel Only</div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[11px] font-mono text-slate-400">UPTIME TARGET</div>
+                <div class="text-xl font-mono font-bold text-cyan-400 mt-0.5">99.9%</div>
+                <div class="text-[10px] text-slate-400 mt-1">Docker Healthcheck Active</div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[11px] font-mono text-slate-400">DISASTER RECOVERY</div>
+                <div class="text-xl font-mono font-bold text-amber-400 mt-0.5">&lt; 15 min RTO</div>
+                <div class="text-[10px] text-slate-400 mt-1">Nightly Pull-based Vault</div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[11px] font-mono text-slate-400">LIVE PLATFORMS</div>
+                <div class="text-xl font-mono font-bold text-purple-400 mt-0.5">3 Active</div>
+                <div class="text-[10px] text-slate-400 mt-1">E-Commerce & Corporate</div>
+              </div>
+            </div>
+
+            <!-- Active Live Links Pill Bar -->
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">Deployed Work Showcase:</span>
+              
+              <a href="https://fantastic-kangaroo-4a2356.netlify.app/" target="_blank" class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800/80 transition-colors group">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+                  <span class="text-xs font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">Dubai Fragrances</span>
+                </div>
+                <span class="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+                  Netlify Live <i data-lucide="external-link" class="w-3 h-3"></i>
+                </span>
+              </a>
+
+              <a href="https://tosomeonespecial.com/" target="_blank" class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800/80 transition-colors group">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-2 h-2 rounded-full bg-purple-400"></div>
+                  <span class="text-xs font-semibold text-slate-200 group-hover:text-purple-400 transition-colors">To Someone Special</span>
+                </div>
+                <span class="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+                  WooCommerce (100+ Products) <i data-lucide="external-link" class="w-3 h-3"></i>
+                </span>
+              </a>
+
+              <a href="https://systemengineers.in/" target="_blank" class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800/80 transition-colors group">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-2 h-2 rounded-full bg-blue-400"></div>
+                  <span class="text-xs font-semibold text-slate-200 group-hover:text-blue-400 transition-colors">System Engineers Corporate</span>
+                </div>
+                <span class="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+                  Cloudflare Protected <i data-lucide="external-link" class="w-3 h-3"></i>
+                </span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. INTERACTIVE CLI / TERMINAL SIMULATOR
+       ========================================== -->
+  <section id="terminal" class="py-12 bg-[#07090e] border-y border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
+            <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+            <span>Interactive Experience</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            DevOps Command Line Simulator
+          </h2>
+          <p class="text-slate-400 text-sm mt-1">
+            Test simulated live commands to inspect Nishant's cloud infrastructure, tunnels, and backups.
+          </p>
+        </div>
+
+        <!-- Quick Action Clickable Chips -->
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+          <span class="text-slate-400 text-[11px] mr-1">Quick Run:</span>
+          <button type="button" data-term-cmd="status" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-cyan-300 transition-colors">status</button>
+          <button type="button" data-term-cmd="tunnel" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-purple-300 transition-colors">tunnel</button>
+          <button type="button" data-term-cmd="backup" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-amber-300 transition-colors">backup</button>
+          <button type="button" data-term-cmd="projects" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-emerald-300 transition-colors">projects</button>
+          <button type="button" data-term-cmd="help" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-colors">help</button>
+          <button type="button" data-term-cmd="clear" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-rose-300 transition-colors">clear</button>
+        </div>
+      </div>
+
+      <!-- Terminal Window Box -->
+      <div class="terminal-window rounded-2xl overflow-hidden">
+        
+        <!-- Terminal Titlebar -->
+        <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between select-none">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+            <span class="text-xs font-mono text-slate-400 ml-2">nishant@cloud-host: ~/infrastructure (bash)</span>
+          </div>
+          <div class="text-[11px] font-mono text-slate-400 flex items-center gap-1.5">
+            <i data-lucide="shield" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>Zero-Trust Session</span>
+          </div>
+        </div>
+
+        <!-- Terminal Output Area -->
+        <div id="terminalWindowContainer" class="p-4 sm:p-6 min-h-[260px] max-h-[380px] overflow-y-auto space-y-3 font-mono text-xs">
+          <!-- Initial Output -->
+          <div class="text-slate-400 leading-relaxed">
+            Welcome to Nishant Kumar's Cloud CLI Simulator.<br>
+            Type <span class="text-cyan-400 font-bold cursor-pointer underline" onclick="window.runTermCmd('help')">help</span> for commands, or click any chip above to test live simulations.
+          </div>
+
+          <div id="terminalOutput" class="space-y-3">
+            <!-- Dynamically populated by js/main.js -->
+          </div>
+        </div>
+
+        <!-- Terminal Input Row -->
+        <div class="px-4 py-3 bg-[#070a12] border-t border-slate-800/80 flex items-center gap-2 font-mono text-xs">
+          <span class="text-cyan-400 font-bold shrink-0">guest@nishant-cloud:~$</span>
+          <input 
+            type="text" 
+            id="terminalInput" 
+            autocomplete="off" 
+            spellcheck="false"
+            placeholder="type 'status', 'tunnel', 'backup', 'projects', 'help'..."
+            class="flex-1 bg-transparent text-white placeholder-slate-400 focus:outline-none font-mono text-xs"
+          />
+          <span class="terminal-cursor"></span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. FEATURED PROJECTS SHOWCASE
+       ========================================== -->
+  <section id="projects" class="py-16 sm:py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header & Filter Pills -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
+            <i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i>
+            <span>Production Portfolio</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Featured Projects & Deployments
+          </h2>
+          <p class="text-slate-400 text-sm mt-1 max-w-2xl">
+            From live high-converting e-commerce web applications to zero-trust containerized server infrastructure.
+          </p>
+        </div>
+
+        <!-- Filter Pills Bar -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+          <button 
+            type="button" 
+            data-project-filter="all"
+            class="shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all bg-cyan-500 text-slate-950 shadow-cyan-500/20 shadow-lg"
+          >
+            All Work (6)
+          </button>
+          <button 
+            type="button" 
+            data-project-filter="web"
+            class="shrink-0 px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700"
+          >
+            Web & E-Commerce
+          </button>
+          <button 
+            type="button" 
+            data-project-filter="devops"
+            class="shrink-0 px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700"
+          >
+            DevOps & Cloud
+          </button>
+          <button 
+            type="button" 
+            data-project-filter="automation"
+            class="shrink-0 px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700"
+          >
+            Automation & DR
+          </button>
+        </div>
+      </div>
+
+      <!-- Projects Grid (Injected by js/main.js) -->
+      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dynamic Cards -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. INTERACTIVE ARCHITECTURE FLOW
+       ========================================== -->
+  <section id="architecture" class="py-16 sm:py-24 bg-[#07090e] border-y border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
+          <i data-lucide="network" class="w-3.5 h-3.5"></i>
+          <span>System Architecture Case Study</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+          Zero-Trust Ingress & Pull-Based Disaster Recovery
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          How Nishant secured internal container services and created tamper-proof automated disaster recovery at System Engineers without exposing a single inbound firewall port.
+        </p>
+      </div>
+
+      <!-- Architecture Step Flow Grid -->
+      <div id="architectureFlowContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        <!-- Injected by js/main.js -->
+      </div>
+
+      <!-- Technical Callout Box -->
+      <div class="p-6 rounded-2xl bg-[#0d121f] border border-slate-800/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0 text-cyan-400">
+            <i data-lucide="lock" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="text-base font-bold text-white mb-1">Key Security Milestone: Laravel APP_KEY Synchronization</h4>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Disaster recovery isn't just about restoring database rows. Nishant ensured deterministic database decryption and application-level encryption compatibility across staging and cold standby nodes by automating the synchronization and secret handling of the Laravel <code class="code-pill text-cyan-300">APP_KEY</code>.
+            </p>
+          </div>
+        </div>
+
+        <button 
+          type="button" 
+          onclick="openProjectModal('snipe-it-zero-trust')"
+          class="shrink-0 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-semibold flex items-center gap-2"
+        >
+          <span>Read Case Study</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-cyan-400"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. WORK EXPERIENCE & EDUCATION TIMELINE
+       ========================================== -->
+  <section id="experience" class="py-16 sm:py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+          <span>Career Journey</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Experience & Education
+        </h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-8">
+        
+        <!-- Timeline Item 1: System Engineers Internship -->
+        <div class="relative pl-8 sm:pl-10 border-l-2 border-cyan-500/30 group">
+          <!-- Timeline Node Bullet -->
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#07090e] border-2 border-cyan-400 group-hover:bg-cyan-400 transition-colors"></div>
+
+          <div class="p-6 sm:p-7 rounded-2xl bg-[#0d121f] border border-slate-800/80 hover:border-slate-700 transition-colors">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-white">IT and Software Intern</h3>
+                <span class="text-cyan-400 font-medium text-sm">System Engineers Cutting and Welding Pvt. Ltd.</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                <i data-lucide="calendar" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span>May 2025 – March 2026</span>
+                <span class="text-slate-600">•</span>
+                <span class="text-slate-400">Faridabad, Haryana</span>
+              </div>
+            </div>
+
+            <!-- Bullet points from resume -->
+            <ul class="space-y-2.5 text-sm text-slate-300 mt-4">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Deployed and managed <strong class="text-white">Snipe-IT</strong> using Docker and Docker Compose for centralized enterprise IT asset tracking.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Implemented <strong class="text-white">Cloudflare Tunnel (cloudflared)</strong> to securely expose internal applications without opening inbound ports (Zero Trust).</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Configured a single Cloudflare Tunnel with multiple application routes for multiple containers running on the same Ubuntu host.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Designed a pull-based backup and disaster recovery system using <strong class="text-white">Tailscale Mesh VPN, SSH, Bash scripting, and cron jobs</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Automated nightly backups and scheduled restore operations with logging and failure alerting.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Developed an <strong class="text-white">Outlook VBA automation script</strong> for email spam filtering, backup, and restore operations.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Designed comprehensive LAN architecture diagrams for structured and secure network management.</span>
+              </li>
+            </ul>
+
+            <!-- Tech Pills -->
+            <div class="flex flex-wrap gap-2 mt-5 pt-4 border-t border-slate-800">
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 text-cyan-300 text-xs font-mono">Docker</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 text-cyan-300 text-xs font-mono">Cloudflare Zero Trust</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 text-cyan-300 text-xs font-mono">Tailscale</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 text-cyan-300 text-xs font-mono">Bash</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 text-cyan-300 text-xs font-mono">Cron</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 text-cyan-300 text-xs font-mono">VBA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2: Education (Galgotias University) -->
+        <div class="relative pl-8 sm:pl-10 border-l-2 border-slate-800 group">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#07090e] border-2 border-slate-600 group-hover:border-cyan-400 transition-colors"></div>
+
+          <div class="p-6 sm:p-7 rounded-2xl bg-[#0d121f] border border-slate-800/80">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+              <div>
+                <h3 class="text-xl font-bold text-white">Bachelor of Technology in Computer Science</h3>
+                <span class="text-indigo-400 font-medium text-sm">Galgotias University</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                <i data-lucide="calendar" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span>Oct 2021 – July 2025</span>
+                <span class="text-slate-600">•</span>
+                <span class="text-slate-400">Greater Noida, UP</span>
+              </div>
+            </div>
+            <p class="text-sm text-slate-300 mt-2">
+              Coursework focused on Computer Networks, Operating Systems, Linux Internals, Database Management Systems, Software Engineering, and Cloud Technologies.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       7. SKILLS MATRIX
+       ========================================== -->
+  <section id="skills" class="py-16 sm:py-24 bg-[#07090e] border-y border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span>Core Competencies</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Technical Skills Matrix
+        </h2>
+        <p class="text-slate-400 text-sm mt-1">
+          Proficiency breakdown across DevOps, Cloud, Scripting, and Web Development.
+        </p>
+      </div>
+
+      <!-- Skills Cards Grid (Injected by js/main.js) -->
+      <div id="skillsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dynamic Category Cards -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       8. CONTACT & CONNECT SECTION
+       ========================================== -->
+  <section id="contact" class="py-16 sm:py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left Column: Contact Info & Quick Reach Out -->
+        <div class="lg:col-span-5">
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>Get In Touch</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+            Let's Build Something Reliable Together.
+          </h2>
+          <p class="text-slate-300 text-sm leading-relaxed mb-8">
+            Whether you have an opening for a DevOps/Cloud Engineer, need help containerizing your infrastructure with Zero Trust, or want a high-converting web platform developed, I'd love to connect!
+          </p>
+
+          <!-- Contact Channel Cards -->
+          <div class="space-y-3.5 mb-8">
+            <a 
+              href="mailto:nishantkumar050103@gmail.com" 
+              class="flex items-center gap-4 p-4 rounded-2xl bg-[#0d121f] border border-slate-800 hover:border-cyan-500/40 transition-colors group"
+            >
+              <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">Email Address</span>
+                <span class="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">nishantkumar050103@gmail.com</span>
+              </div>
+            </a>
+
+            <a 
+              href="https://wa.me/919336600810?text=Hi%20Nishant,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." 
+              target="_blank" 
+              class="flex items-center gap-4 p-4 rounded-2xl bg-[#0d121f] border border-slate-800 hover:border-emerald-500/40 transition-colors group"
+            >
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">Phone / WhatsApp</span>
+                <span class="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors">+91 9336600810</span>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-[#0d121f] border border-slate-800">
+              <div class="w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">Location</span>
+                <span class="text-sm font-semibold text-white">NIT-3, Faridabad, Haryana, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex items-center gap-3">
+            <a 
+              href="https://linkedin.com/in/nishantkumar225" 
+              target="_blank" 
+              class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-semibold flex items-center gap-2 transition-colors"
+            >
+              <i data-lucide="linkedin" class="w-4 h-4 text-cyan-400"></i>
+              <span>LinkedIn</span>
+            </a>
+
+            <a 
+              href="https://github.com/niksrajput225" 
+              target="_blank" 
+              class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-semibold flex items-center gap-2 transition-colors"
+            >
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Send Message Form -->
+        <div class="lg:col-span-7">
+          <div class="p-6 sm:p-8 rounded-2xl bg-[#0d121f] border border-slate-800/80 shadow-2xl">
+            <h3 class="text-xl font-bold text-white mb-2">Send a Direct Message</h3>
+            <p class="text-xs text-slate-400 mb-6">
+              Fill in your details below to dispatch an email inquiry directly to Nishant.
+            </p>
+
+            <form id="portfolioContactForm" class="space-y-4">
+              <div>
+                <label class="block text-xs font-mono text-slate-300 mb-1.5 uppercase tracking-wider">Your Name *</label>
+                <input 
+                  type="text" 
+                  name="name" 
+                  required 
+                  placeholder="e.g. John Doe / Tech Recruiter"
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700/80 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-slate-300 mb-1.5 uppercase tracking-wider">Email Address *</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  required 
+                  placeholder="john@company.com"
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700/80 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-slate-300 mb-1.5 uppercase tracking-wider">Message *</label>
+                <textarea 
+                  name="message" 
+                  rows="4" 
+                  required 
+                  placeholder="Tell me about the role, project, or infrastructure challenge..."
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700/80 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50"
+                ></textarea>
+              </div>
+
+              <div id="contactStatusMessage" class="text-xs font-mono hidden"></div>
+
+              <button 
+                type="submit" 
+                class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-cyan-500/20 shadow-lg"
+              >
+                <i data-lucide="send" class="w-4 h-4 text-slate-950"></i>
+                <span>Send Message Directly</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       9. FOOTER
+       ========================================== -->
+  <footer class="bg-[#05080f] border-t border-slate-800/80 py-10 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-3">
+          <span class="font-mono font-bold text-white text-sm">Nishant Kumar</span>
+          <span class="text-slate-600">•</span>
+          <span>DevOps & Cloud Engineer</span>
+        </div>
+
+        <div class="flex items-center gap-6 font-mono text-[11px]">
+          <a href="#hero" class="hover:text-cyan-400 transition-colors">Top</a>
+          <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+          <a href="#terminal" class="hover:text-cyan-400 transition-colors">Terminal</a>
+          <a href="https://github.com/niksrajput225" target="_blank" class="hover:text-cyan-400 transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/nishantkumar225" target="_blank" class="hover:text-cyan-400 transition-colors">LinkedIn</a>
+        </div>
+
+        <div class="text-[11px] text-slate-400">
+          © 2026 Nishant Kumar. Designed & engineered for production reliability.
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       10. PROJECT DETAIL MODAL
+       ========================================== -->
+  <div 
+    id="projectModal" 
+    class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop overflow-y-auto"
+    onclick="if(event.target === this) closeProjectModal()"
+  >
+    <div 
+      id="projectModalContent" 
+      class="relative w-full max-w-3xl bg-[#0d121f] border border-cyan-500/30 rounded-2xl shadow-2xl overflow-hidden my-8"
+    >
+      <!-- Dynamic Content injected by js/main.js -->
+    </div>
+  </div>
+
+  <!-- ==========================================
+       11. RESUME VIEWER MODAL
+       ========================================== -->
+  <div 
+    id="resumeModal" 
+    class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop overflow-y-auto"
+    onclick="if(event.target === this) closeResumeModal()"
+  >
+    <div class="relative w-full max-w-3xl bg-[#0d121f] border border-cyan-500/30 rounded-2xl shadow-2xl overflow-hidden my-8">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between p-6 border-b border-slate-800 bg-[#070a12]">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white">Nishant Kumar — Resume</h3>
+            <p class="text-xs font-mono text-slate-400">DevOps & Cloud Engineer | Faridabad, Haryana</p>
+          </div>
+        </div>
+        <button 
+          onclick="closeResumeModal()" 
+          class="p-2 rounded-xl bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-colors"
+        >
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Formatted Resume Content) -->
+      <div class="p-6 sm:p-8 space-y-6 max-h-[75vh] overflow-y-auto font-sans text-sm text-slate-300">
+        
+        <!-- Header Info -->
+        <div class="border-b border-slate-800 pb-5">
+          <h2 class="text-2xl font-bold text-white">Nishant Kumar</h2>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-cyan-400 mt-2">
+            <span>NIT-3, Faridabad, Haryana</span>
+            <span>•</span>
+            <span>+91 9336600810</span>
+            <span>•</span>
+            <a href="mailto:nishantkumar050103@gmail.com" class="underline">nishantkumar050103@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div>
+          <h4 class="text-xs font-mono uppercase text-cyan-400 tracking-wider font-bold mb-2">Professional Summary</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            DevOps & Cloud Engineer with hands-on experience in Linux servers, Docker, Docker Compose, Cloudflare Zero Trust (Tunnel), CI/CD automation, cron-based scheduling, and secure backup & disaster recovery systems. Focused on automation, security, and production reliability.
+          </p>
+        </div>
+
+        <!-- Experience -->
+        <div>
+          <h4 class="text-xs font-mono uppercase text-cyan-400 tracking-wider font-bold mb-3">Work Experience</h4>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <div class="font-bold text-white text-sm">IT and Software Intern</div>
+                <div class="text-xs text-indigo-400">System Engineers Cutting and Welding Pvt. Ltd. (Faridabad)</div>
+              </div>
+              <span class="text-xs font-mono text-slate-400">May 2025 – March 2026</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1 text-xs text-slate-300 mt-2">
+              <li>Deployed and managed Snipe-IT using Docker and Docker Compose for centralized IT asset management.</li>
+              <li>Implemented Cloudflare Tunnel (cloudflared) to securely expose internal applications without opening inbound ports (Zero Trust).</li>
+              <li>Configured a single Cloudflare Tunnel with multiple application routes for multiple containers on the same host.</li>
+              <li>Designed a pull-based backup and disaster recovery system using Tailscale, SSH, Bash scripting, and cron jobs.</li>
+              <li>Automated nightly backups and scheduled restore operations with logging and failure handling.</li>
+              <li>Developed an Outlook VBA automation script for email spam filtering, backup, and restore operations.</li>
+              <li>Designed LAN architecture diagrams for structured and secure network management.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Live Projects -->
+        <div>
+          <h4 class="text-xs font-mono uppercase text-cyan-400 tracking-wider font-bold mb-3">Featured & Deployed Projects</h4>
+          <div class="space-y-3 text-xs">
+            <div class="p-3.5 rounded-xl bg-slate-900/40 border border-slate-800">
+              <div class="font-bold text-white">Dubai Fragrances (<a href="https://fantastic-kangaroo-4a2356.netlify.app/" target="_blank" class="text-cyan-400 underline">Live Store</a>)</div>
+              <div class="text-slate-400 mt-0.5">Artisanal Arabian Attars e-commerce storefront with Olfactory pyramid notes modal, slide-over bag drawer, and Cash-On-Delivery checkout. Built with modern Tailwind CSS and JavaScript.</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900/40 border border-slate-800">
+              <div class="font-bold text-white">To Someone Special (<a href="https://tosomeonespecial.com/" target="_blank" class="text-purple-400 underline">tosomeonespecial.com</a>)</div>
+              <div class="text-slate-400 mt-0.5">Full WooCommerce e-commerce platform hosting 100+ products, payment workflows, and automated order fulfillment.</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900/40 border border-slate-800">
+              <div class="font-bold text-white">Secure Snipe-IT Deployment & Zero Trust</div>
+              <div class="text-slate-400 mt-0.5">Docker Compose on Ubuntu, Cloudflare Tunnel ingress routing, Laravel APP_KEY sync for encryption compatibility.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <h4 class="text-xs font-mono uppercase text-cyan-400 tracking-wider font-bold mb-2">Education</h4>
+          <div class="flex justify-between items-center text-xs">
+            <div>
+              <span class="font-bold text-white">Bachelor of Technology in Computer Science</span>
+              <div class="text-slate-400">Galgotias University, Greater Noida, Uttar Pradesh</div>
+            </div>
+            <span class="font-mono text-slate-400">Oct 2021 – July 2025</span>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div>
+          <h4 class="text-xs font-mono uppercase text-cyan-400 tracking-wider font-bold mb-2">Technical Skills</h4>
+          <div class="text-xs space-y-1 text-slate-300">
+            <div><strong class="text-white">DevOps & Cloud:</strong> Linux, Docker, Docker Compose, Kubernetes (basic), Cloudflare (DNS, Tunnel, Zero Trust), CI/CD, Cron, SSH</div>
+            <div><strong class="text-white">Cloud Platforms:</strong> AWS (EC2, S3, IAM, VPC)</div>
+            <div><strong class="text-white">Automation & Scripting:</strong> Bash, Python, VBA</div>
+            <div><strong class="text-white">Version Control:</strong> Git, GitHub (SSH workflows)</div>
+            <div><strong class="text-white">Databases:</strong> MySQL, MongoDB</div>
+            <div><strong class="text-white">Web & Deployment:</strong> HTML5, Tailwind CSS, JavaScript, WordPress, WooCommerce</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-6 border-t border-slate-800 bg-[#070a12] flex items-center justify-between">
+        <button 
+          onclick="closeResumeModal()" 
+          class="px-4 py-2 rounded-xl bg-slate-900 text-slate-300 border border-slate-800 text-xs font-semibold"
+        >
+          Close
+        </button>
+
+        <button 
+          onclick="window.print()" 
+          class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5"
+        >
+          <i data-lucide="printer" class="w-3.5 h-3.5 text-slate-950"></i>
+          <span>Print / Save as PDF</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/projects-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
